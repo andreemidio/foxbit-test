@@ -1,4 +1,5 @@
 import argparse
+import sys
 
 from sty import fg
 
@@ -7,16 +8,7 @@ from rover.posicao import Posicao
 from rover.rover import Rover
 
 
-def main(*args, **kwargs):
-    plateau = Plato(largura=kwargs.get("largura"), altura=kwargs.get("altura"))
-    position = Posicao(x=kwargs.get("x"), y=kwargs.get("y"))
-    rover = Rover(plateau, position, Rover.DIRECOES.get(kwargs.get("direcao")))
-    rover.processamento(comandos=kwargs.get("processamento"))
-    color = fg(201) + str(rover) + fg.rs
-    print(color)
-
-
-if __name__ == "__main__":
+def main():
     parser = argparse.ArgumentParser(description='Rover Test')
     parser.add_argument('--largura', help='largura', default=5)
     parser.add_argument('--altura', help='altura', default=5)
@@ -27,13 +19,13 @@ if __name__ == "__main__":
 
     argumentos = parser.parse_args()
 
-    valores = dict(
-        largura=int(argumentos.largura),
-        altura=int(argumentos.altura),
-        x=int(argumentos.x),
-        y=int(argumentos.y),
-        direcao=argumentos.direcao,
-        processamento=argumentos.processamento,
-    )
+    plateau = Plato(int(argumentos.largura), altura=int(argumentos.altura))
+    position = Posicao(int(argumentos.x), y=int(argumentos.y))
+    rover = Rover(plateau, position, Rover.DIRECOES.get(argumentos.direcao))
+    rover.processamento(comandos=argumentos.processamento)
+    color = fg(201) + str(rover) + fg.rs
+    print(color)
 
-    main(**valores)
+
+if __name__ == "__main__":
+    sys.exit(main())
