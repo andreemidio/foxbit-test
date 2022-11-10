@@ -1,6 +1,6 @@
 import argparse
 
-from sty import fg, bg, ef, rs
+from sty import fg
 
 from rover.plato import Plato
 from rover.posicao import Posicao
@@ -14,8 +14,6 @@ def main(*args, **kwargs):
     rover.processamento(comandos=kwargs.get("processamento"))
     color = fg(201) + str(rover) + fg.rs
     print(color)
-
-    print('\x1b[6;30;42m' + 'Sucesso' + '\x1b[0m')
 
 
 if __name__ == "__main__":
