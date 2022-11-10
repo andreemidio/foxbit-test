@@ -1,4 +1,4 @@
-class Plato(object):
+class Plato:
     MIN_LARGURA = 0
     MIN_ALTURA = 0
 

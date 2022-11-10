@@ -1,7 +1,7 @@
-from .posicao import Posicao
+from rover.posicao import Posicao
 
 
-class Rover(object):
+class Rover:
     COMANDOS = {
         'M': 'mover',
         'L': 'Virar_Esquerda',
@@ -37,19 +37,19 @@ class Rover(object):
 
     @property
     def posicao_atual(self):
-        return f'{self.posicao.x} {self.posicao.y} {self.get_heading}'
+        return f'{self.posicao.x} {self.posicao.y} {self.pegar_topo}'
 
     @property
-    def get_heading(self):
-        directions = list(self.DIRECOES.keys())
+    def pegar_topo(self):
+        direcoes = list(self.DIRECOES.keys())
 
         try:
-            direction = directions[self.topo - 1]
+            _direcao = direcoes[self.topo - 1]
         except IndexError:
-            direction = 'N'
-            print('Direction error...')
+            _direcao = 'N'
+            print('Direção incorreta ...')
 
-        return direction
+        return _direcao
 
     def processamento(self, comandos):
         for i in range(len(comandos)):
@@ -69,7 +69,7 @@ class Rover(object):
     def move(self):
         if not self.plato.direcao_disponivel(self.posicao):
             return False
-        # Assume that the square directly North from (x, y) is (x, y+1).
+
         if self.DIRECOES['N'] == self.topo:
             self.posicao.y += 1
         elif self.DIRECOES['E'] == self.topo:
