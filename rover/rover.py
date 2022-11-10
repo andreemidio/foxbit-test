@@ -51,9 +51,9 @@ class Rover(object):
 
         return direction
 
-    def processamento(self, commands):
-        for i in range(len(commands)):
-            self.executar(commands[i])
+    def processamento(self, comandos):
+        for i in range(len(comandos)):
+            self.executar(comandos[i])
 
     def executar(self, command):
         if 'L' == command:
