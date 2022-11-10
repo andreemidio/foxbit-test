@@ -25,9 +25,9 @@ python .\main.py --largura 5  --altura 5 --x 3 --y 3 --direcao E --processamento
 
 O programa tem alguns dados pré-fixados que os dados são os seguintes
 
-largura 5 
-altura 5 
-x 1 
-y 2 
-direcao N 
-processamento LMLMLMLMM 
+largura 5 <br>
+altura 5 <br>
+x 1 <br>
+y 2 <br>
+direcao N <br>
+processamento LMLMLMLMM <br> 
