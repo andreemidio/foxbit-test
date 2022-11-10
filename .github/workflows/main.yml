@@ -29,6 +29,11 @@ jobs:
 
       - name: Test with pytest
         run: |
-          pytest . --cov=.
+           python -m pytest testes/
+
+
+      - name: Test with pytest Coverage
+        run: |
+           python -m pytest testes/ --cov=.
 
 

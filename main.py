@@ -6,7 +6,6 @@ from rover.rover import Rover
 def main():
     plateau = Plato(5, 5)
     position = Posicao(1, 2)
-
     rover = Rover(plateau, position, Rover.DIRECOES.get('N'))
     rover.processamento("LMLMLMLMM")
     print(rover)  # prints 1 3 N
